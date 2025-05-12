@@ -29,7 +29,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: qr-tracker-war
-          path: target/qr-tracker.war
+          path: qr-tracker/target/qr-tracker.war
           if-no-files-found: error
 
   deploy:
@@ -41,10 +41,10 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: qr-tracker-war
-          path: ${{ github.workspace }}/target/
+          path: ${{ github.workspace }}/qr-tracker/target/
 
       - name: Deploy to Tomcat via Manager
         run: |
-          curl -T "${{ github.workspace }}/target/qr-tracker.war" \
+          curl -T "${{ github.workspace }}/qr-tracker/target/qr-tracker.war" \
           "https://${{ secrets.TOMCAT_USER }}:${{ secrets.TOMCAT_PASS }}@qr.hriday.tech/manager/text/deploy?path=/ROOT&update=true"
 
