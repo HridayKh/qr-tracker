@@ -45,6 +45,6 @@ jobs:
 
       - name: Deploy to Tomcat via Manager
         run: |
-          curl -T "${{ github.workspace }}/qr-tracker/target/qr-tracker.war" \
-          "https://${{ secrets.TOMCAT_USER }}:${{ secrets.TOMCAT_PASS }}@qr.hriday.tech/manager/text/deploy?path=/ROOT&update=true"
+          curl -T "${{ github.workspace }}/qr-tracker/target/qr-tracker.war" --user "${{ secrets.TOMCAT_USER }}:${{ secrets.TOMCAT_PASS }}" "https://qr.hriday.tech/manager/text/deploy?path=/ROOT&update=true"
+
 
