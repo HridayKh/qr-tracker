@@ -23,7 +23,8 @@ public class Main extends HttpServlet {
 		out.println("<title>Hello World!</title>");
 		out.println("</head>");
 		out.println("<body>");
-		out.println("<h1>Hello World!</h1>");
+		out.println(
+				"<img src=\"data:image/png;base64," + main.QR.makeStatic("test", 3, 0xFFFFFF, 0x000000, 10, 40) + "\">");
 		out.println("</body>");
 		out.println("</html>");
 
