@@ -20,7 +20,9 @@ jobs:
           cache: maven
 
       - name: Build with Maven
-        run: mvn clean package
+        run: |
+          cd qr-tracker
+          mvn clean package
 
       - name: Upload Artifact
         if: success()
