@@ -28,10 +28,10 @@ jobs:
           find qr-tracker/src/main/webapp -mindepth 1 -maxdepth 1 ! -name 'WEB-INF' -exec rm -rf {} +
           cp -r qr-react/dist/* qr-tracker/src/main/webapp/
         
-      - name: Set up JDK 17
+      - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
-          java-version: '17'
+          java-version: '21'
           distribution: 'temurin'
           cache: maven
 
